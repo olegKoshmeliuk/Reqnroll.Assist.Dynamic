@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    tags:
+    - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions: write-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set VERSION variable from tag
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+    - run: dotnet clean
+    - run: dotnet build -c Release /p:Version=${VERSION}
+    - run: dotnet test /p:Version=${VERSION} 
+    - run: dotnet pack -c Release /p:Version=${VERSION}
+    - name: Push
+      run: dotnet nuget push Reqnroll.Assist.Dynamic/bin/Release/ReqnrollExtra.Assist.Dynamic.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGET_API_KEY}
+      env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}

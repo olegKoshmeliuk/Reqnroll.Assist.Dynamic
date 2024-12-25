@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>10</LangVersion>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>ReqnrollExtra.Assist.Dynamic</PackageId>
+		<Authors>Oleg Koshmeliuk</Authors>
+		<PackageDescription></PackageDescription>
+		<!--<Company>Contoso</Company>-->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Dynamitey" Version="3.0.3" />
+		<PackageReference Include="Reqnroll" Version="2.2.1" />
+	</ItemGroup>
+</Project>
