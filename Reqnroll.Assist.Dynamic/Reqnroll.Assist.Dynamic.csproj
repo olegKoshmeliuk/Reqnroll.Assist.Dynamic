@@ -8,7 +8,7 @@
 	<PropertyGroup>
 		<PackageId>ReqnrollExtra.Assist.Dynamic</PackageId>
 		<Authors>Oleg Koshmeliuk</Authors>
-		<PackageDescription></PackageDescription>
+		<PackageDescription>Adds support for dynamic instances and sets from Reqnroll tables</PackageDescription>
 		<!--<Company>Contoso</Company>-->
 	</PropertyGroup>
 
